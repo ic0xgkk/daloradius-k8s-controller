@@ -1,0 +1,91 @@
+
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.4.1
+  creationTimestamp: null
+  name: daloradius.app.k8s-cluster.net.xuegaogg.com
+spec:
+  group: app.k8s-cluster.net.xuegaogg.com
+  names:
+    kind: DaloRadius
+    listKind: DaloRadiusList
+    plural: daloradius
+    singular: daloradius
+  scope: Namespaced
+  versions:
+  - name: v1
+    schema:
+      openAPIV3Schema:
+        description: DaloRadius is the Schema for the daloradius API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: DaloRadiusSpec defines the desired state of DaloRadius
+            properties:
+              acct_port:
+                description: NodePort for FreeRadius acct port
+                type: integer
+              auth_port:
+                description: NodePort for FreeRadius auth port
+                type: integer
+              http_port:
+                description: NodePort for DaloRadius port
+                type: integer
+              image_tag:
+                description: Default to latest
+                type: string
+              mysql_database:
+                description: Must set mysql database name
+                type: string
+              mysql_host:
+                description: Must set mysql host
+                type: string
+              mysql_password:
+                description: Must set mysql password
+                type: string
+              mysql_port:
+                description: Default to 3306
+                type: integer
+              mysql_username:
+                description: Must set mysql username
+                type: string
+              replicas:
+                description: Default to 3
+                format: int32
+                type: integer
+              timezone:
+                description: TZ database name in https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+                  Default to Asia/Shanghai
+                type: string
+            type: object
+          status:
+            description: DaloRadiusStatus defines the observed state of DaloRadius
+            properties:
+              status:
+                type: string
+            type: object
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []

@@ -1,0 +1,20 @@
+# permissions for end users to view daloradius.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: daloradius-viewer-role
+rules:
+- apiGroups:
+  - app.k8s-cluster.net.xuegaogg.com
+  resources:
+  - daloradius
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - app.k8s-cluster.net.xuegaogg.com
+  resources:
+  - daloradius/status
+  verbs:
+  - get

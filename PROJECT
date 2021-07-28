@@ -1,0 +1,16 @@
+domain: k8s-cluster.net.xuegaogg.com
+layout:
+- go.kubebuilder.io/v3
+projectName: daloradius-k8s-controller
+repo: github.com/XUEGAONET/daloradius-k8s-controller
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: k8s-cluster.net.xuegaogg.com
+  group: app
+  kind: DaloRadius
+  path: github.com/XUEGAONET/daloradius-k8s-controller/api/v1
+  version: v1
+version: "3"

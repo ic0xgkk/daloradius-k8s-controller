@@ -1,0 +1,24 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: drtest
+
+---
+apiVersion: app.k8s-cluster.net.xuegaogg.com/v1
+kind: DaloRadius
+metadata:
+  name: xuegao-daloadius
+  namespace: drtest
+spec:
+  timezone: Asia/Shanghai
+  replicas: 3
+  http_port: 30080
+  auth_port: 31812
+  acct_port: 31813
+  mysql_host: <host>
+  mysql_port: 3306
+  mysql_username: <username>
+  mysql_password: <password>
+  mysql_database: <database name>
+  image_tag: latest
